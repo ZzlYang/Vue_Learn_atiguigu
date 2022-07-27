@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+    <div id="root">
+        <app></app>
+        <hello></hello>
+    </div>
+    <hr>
+    <div id="root2">
+        <hello></hello>
+    </div>
+</body>
+</html>
+
+<script>
+    Vue.config.productionTip = false    //关闭Vue开发者警告
+    // 创建Vue实例
+    const student = Vue.extend({
+        template:`
+            <div>
+             <h2>学生名称{{studentName}}</h2>
+            <h2>学生地址{{age}}</h2>
+            <button @click="showName">点我提示学校名</button>	
+            </div>
+        `,
+        data(){
+           return{
+                studentName:'相信音乐',
+                age:25,
+            } 
+        },
+        methods: {
+				showName(){
+					alert(this.studentName)
+				}
+			}
+    })
+
+    const com = Vue.extend({
+        template:`
+            <div>
+            <h2>公司名称{{comName}}</h2>
+            <h2>公司地址{{address}}</h2>
+            <button @click="showName">点我提示学校名</button>	
+            </div>
+        `,
+        data(){
+           return{
+                comName:'米哈游',
+                address:'上海',
+            } 
+        },
+        methods: {
+				showName(){
+					alert(this.comName)
+				}
+			}
+    })
+
+    const school = Vue.extend({
+        name:'n',
+        template:`
+            <div>
+            <h2>学校名称{{schoolName}}</h2>
+            <h2>学校地址{{address}}</h2>
+            <button @click="showName">点我提示学校名</button>
+            <h3>{{name}}</h3>	
+            </div>
+        `,
+        data(){
+           return{
+            schoolName:'相信音乐',
+                address:'北京',
+            } 
+        },
+        methods: {
+				showName(){
+					alert(this.schoolName)
+				}
+			}
+    })
+
+    const app = Vue.extend({
+        template:`
+            <div>
+                <school></school>
+                <student></student>
+                <com></com>
+            </div>
+        `,
+        components:{
+            school,
+            student,
+            com,
+        }
+    })
+
+    //第一步：创建hello组件
+		const hello = Vue.extend({
+			template:`
+				<div>	
+					<h2>你好啊！{{name}}</h2>
+				</div>
+			`,
+			data(){
+				return {
+					name:'Tom'
+				}
+			}
+		})
+		
+		//第二步：全局注册组件
+		Vue.component('hello',hello)
+
+
+    const vm =  new Vue({
+        el:"#root",
+        data:{
+            vname:"滚石不生苔"
+        },
+        components:{
+            app:app,
+        }
+    })
+
+    new Vue({
+        el:"#root2",
+    })
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            padding: 8px;
+            width: 180px;
+        }
+        .blue{
+            background: blue;
+        }
+        .larger{
+            font-size: 30px;
+        }
+        .green{
+            background: green;
+        }
+        .fontColor{
+            color: rgb(250, 12, 12);
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        attr("class")       获取class属性的值，即样式名称
+        attr("class","样式名")  修改class属性的值，修改样式
+        addClass("样式名")  添加样式名称    在原来的基础上添加样式 如果出现相同样式 则以样式中后定义的样式为准
+        css()   添加具体的样式  css("k","v")   css("k1":"v1","k2":"v2")
+        removeClass(class)  移除样式名称
+     -->
+     <h3>css()方法设置元素样式</h3>
+     <div id="conBlue" class="blue large  fontColor" >天蓝色</div>
+     <div id="conRed">大红色</div>
+     <div id="remove" class="blue larger">天蓝色</div>
+</body>
+</html>
+<script src="../js/jquery-3.6.0.js" type="text/javascript"></script>
+<script>
+    var cla = $("#conBlue").attr("class")
+    console.log(cla)
+    $("#conBlue").attr("class","green")
+
+    $("#conBlue").addClass("larger")
+
+    //移除样式
+    $("#remove").removeClass("blue")
+</script>

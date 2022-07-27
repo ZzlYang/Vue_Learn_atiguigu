@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<style>
+    .basic{
+        width:400px;
+        height:100px;
+        border:1px solid black;
+    }
+    .class1{
+        background-color: #555;
+        color: #eee;
+    }
+    .class2{
+        background-color: rgb(255, 1, 1);
+        color: #eee;
+    }
+    .class3{
+        background-color: rgb(102, 63, 163);
+        color: #eee;
+    }
+    /* 
+    可以用数组写法叠加样式
+    */
+</style>
+<body>
+    <div id="root">
+        <div class="basic" :class="mood" @click="changeMood">who am i</div>
+        <br/> <br/>
+        <br/> <br/>
+        
+        <div class="basic" :style="fontSizeObj">bird</div>
+    </div>
+</body>
+</html>
+
+<script>
+    Vue.config.productionTip = false    //关闭Vue开发者警告
+    // 创建Vue实例
+    const vm =  new Vue({
+        el:"#root",
+        data:{
+            vname:"滚石不生苔",
+            mood:"normal",
+            fontSizeObj:{
+                fontSize: '50px'
+            }
+
+        },
+        methods:{
+            changeMood(){
+               const arr = ['class1','class2','class3']
+               this.mood = arr[parseInt(Math.random()*10%3)]
+            }
+        }
+    })
+
+   
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div  id="mydiv">文本</div>
+    
+    
+</body>
+</html>
+
+<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var divDom = document.getElementById("mydiv");
+        console.log(divDom);
+
+        var divJquery = $("#mydiv");
+        console.log(divJquery);
+        // dom对象转换为jq对象
+        var objj = $(divDom);
+        //jq对象转换为dom对象
+        var objd = objj[0];
+
+        console.log(objj)
+        console.log("====================")
+        console.log(objd)
+    </script>

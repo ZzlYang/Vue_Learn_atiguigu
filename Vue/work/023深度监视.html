@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<!-- 
+    深度监视：
+        Vue中watch默认不监测对象内部的值的改变
+        配置deep：true可以监测对象内部值的改变
+    备注: 
+        vue自身可以监测对象内部值的改变，单vue提供的watch默认不可以
+        使用watch时更具数据的具体结构，决定是否采用深度监视
+ -->
+<body>
+    <div id="root">
+        <!-- 欢迎！{{vname}}来访 -->
+        <h2>To day's weather is:{{info}}</h2>
+        <button @click="changeweather">switch weather</button>
+        <button @click="isHot = !isHot">switch weather</button>
+        <hr> <hr>
+        <h3>a的值式:{{numbers.a}}</h3>
+        <button @click="numbers.a++">点我让a+1</button>
+        <hr/> <hr/>
+        <h3>b的值式:{{numbers.b}}</h3>
+        <button @click="plusTwo">点我让b+2</button>
+        <button @click="numbers={a:666,b:888}">点我让替换掉numbers</button>
+    </div>
+</body>
+</html>
+
+<script>
+    Vue.config.productionTip = false    //关闭Vue开发者警告
+    // 创建Vue实例
+    const vm =  new Vue({
+        el:"#root",
+        data:{
+            isHot:true,
+            numbers:{
+                a:1,
+                b:1
+            }
+
+        },
+        computed:{ //计算属性
+            info(){
+                return this.isHot? '炎热':'凉爽'
+            }
+        },
+        methods: {
+            changeweather(){
+                this.isHot = !this.isHot
+            },
+            plusTwo(){
+                this.numbers.b +=2
+            }
+        },
+        watch:{ //监视属
+            numbers:{
+                deep:true,  //开启深度监视
+                handler(){
+                    console.log("numbers改变了!")
+                }
+            },
+            isHot:{
+                // immediate:true,
+                handler(newValue,oldValue){
+                    console.log("ishot被修改了")
+                    console.log(newValue,oldValue)
+                },
+                // 监视多级结构中某个属性的变化
+                'numbers.a':{
+                    handler(){
+                        console.log("a的值被改变了")
+                    }
+                }
+            }
+            // info:{
+            //     // immediate:true,
+            //     handler(newValue,oldValue){
+            //         console.log("info被修改了")
+            //         console.log(newValue,oldValue)
+            //     }
+            // }
+        }
+    })  
+// 
+
+/*
+
+            vm.$watch("isHot",function(newValue,oldValue){
+                consol.log('isHot被修改改了',newValue,oldValue)
+            })
+*/
+//    vm.$watch('isHot', {
+//                 immediate:true,
+//                 handler(newValue,oldValue){
+//                     console.log("ishot被修改了")
+//                     console.log(newValue,oldValue)
+//                 }
+//             })
+</script>

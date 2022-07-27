@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            margin: 10px 0px;
+        }
+        span{
+            color: blueviolet;
+            padding: 8px;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        .pink{
+            background-color: pink;
+        }
+        .gray{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+      1.  prepend(contend) 再被选定元素内部开头插入元素或者内容
+      2.  $(content).prependTo(selector) 将conten元素或者内容加入到selector元素开头
+      3.  append(content)    在被选中的元素内部结尾插入元素或者内容
+      4.  $(content).appendTo(selector))  将content元素或内容插入到selector元素内
+      5.  before() 在元素前插入指定的元素或内容
+      6.  after() 在元素后插入指定的元素或内容
+
+      1~4都是选定元素内部添加
+      5、6都是选的元素前后添加
+     -->
+     <h3>prepend()方法前追加内容</h3>
+     <h3>prependTo()方法前追加内容</h3>
+     <h3>append()方法后追加内容</h3>
+     <h3>appendTo()方法后追加内容</h3>
+     <span class="red">Mayday</span>
+     <span class="blue">乐团</span>
+     <div class="green">
+        <span>星空</span>
+     </div>
+     <button onclick="append1()" >追加标签</button>
+</body>
+</html>
+
+<script src="../js/jquery-3.6.0.js" type="text/javascript"></script>
+<script>
+    var p = "<p>p_lab</p>"
+    var text = "<a>我是被创建的元素</a>"
+
+    console.log(p)
+    console.log($(p))
+    
+    var span = "<span>诺亚方舟</span>"
+    var last = "<span>仓颉</span>"
+    //得到指定元素
+    $(".green").prepend(span);
+    $("<span>OAOA</span>").prependTo($(".green"))
+
+    $(".green").append(last);
+    $("<span>洗衣机</span>").appendTo($(".green"))
+
+    var sp1 ="<span class='pink'>雌雄同体</span>"
+    var sp2 ="<span class='gray'>步步</span>"
+
+    $(".blue").before(sp1)
+    $(".blue").after(sp2)
+
+    function append1(){
+        var txt1 = $("<m>2012</m>")
+        var txt2 =$("<a>第二人生</a>")
+        var br =$("<br>")
+        $("body").append(txt1,txt2,br)
+    }
+</script>

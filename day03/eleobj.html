@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="a.jpg" id="ava" alt="ava">
+    <div class="cls"> 黑黄杖</div> 
+    <br>
+    <div class="cls"> 蝴蝶</div>
+
+    <input type="checkbox" name="hobby" id="">电影
+    <input type="checkbox" name="hobby" id="">小说
+    <input type="checkbox" name="hobby" id="">漫画
+    <input type="checkbox" name="hobby" id="">游戏
+
+    <script>
+        var img = document.getElementById("ava")
+        alert(img)
+        img.src="p.jpg" //重新设置img的src属性
+        // 标签名称
+       
+        var tagname = document.getElementsByTagName("div")
+        alert(tagname.length)
+        for(let i = 0 ;i<tagname.length;i++){
+            tagname[i].style.color= 'blue'
+        }
+        //name标签
+        var hobbys =document.getElementsByName("hobby")
+        for(let i = 0 ;i < hobbys.length;i++ ){
+            hobbys[i].checked = true;
+        }
+
+        document.getElementsByClassName("cls")
+    </script>
+</body>
+</html>

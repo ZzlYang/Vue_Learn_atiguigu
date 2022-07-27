@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识Vue</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+     <div id="root">
+        <h2>公司名称:{{name}}</h2>
+        <h2>公司项目:{{project}}</h2>
+     </div>
+</body>
+</html>
+
+<script>
+    Vue.config.productionTip = false    //关闭Vue开发者警告
+    // 创建Vue实例
+    const x =  new Vue({})
+
+    let obj = {x:100}
+    let obj2 = {y:200}
+
+    Object.defineProperty(obj2,'x',{
+        get(){
+            return obj.x
+        }
+    })
+   
+</script>

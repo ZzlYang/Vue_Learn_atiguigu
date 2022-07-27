@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+    <div id="root">
+       <!-- <h2 v-show="a">欢迎！{{vname}}来访</h2> 
+       <h3 v-if="n ===1" >React</h3>
+       <h3 v-else-if="n ===2">Angular</h3>
+       <h3 v-else-if="n ===3">Vue</h3>
+       <h3 v-else-if="n ===4">Jquery</h3>
+       <h3 v-else >hahah</h3> -->
+       <h2>当前n的值为:{{n}}</h2>
+       <button @click="add">点我N+1</button>
+       <template v-if="n===1">
+            <h2>你好</h2>
+            <h2>相信音乐</h2>
+            <h3>北京</h3>
+       </template>
+    </div>
+    
+<!-- v-show -->
+<!-- v-if做条件渲染 -->
+</body>
+</html>
+
+<script>
+    Vue.config.productionTip = false    //关闭Vue开发者警告
+    // 创建Vue实例
+    const vm =  new Vue({
+        el:"#root",
+        data:{
+            vname:"滚石不生苔",
+            a:false,
+            n:0
+        },
+        methods:{
+           add(){
+            if(this.n > 4) this.n = 0
+            this.n++
+            }
+        },
+    
+    })
+
+   
+</script>

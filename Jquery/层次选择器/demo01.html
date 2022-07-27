@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.0.js" type="text/javascript"></script>
+    <style type="text/css">
+        .testColor{
+            background: deeppink;
+        }
+        .rgbColor{
+            background: rgb(48, 152, 250);
+        }
+    </style>
+</head>
+<body>
+    <!-- 层次选择器
+            后代选择器
+                格式: 父元素 指定元素
+                示例 $("父元素 指定元素")
+                选择父元素的所有指定元素
+            子代选择器
+                格式：父元素 > 指定元素(大于号隔开)
+                示例 $("父元素>指定元素")
+                选择父元素的所有第一代指定元素
+            相邻选择器
+                格式：元素 + 指定元素(加号隔开)
+                示例:$("元素+指定元素")
+                选择元素的下一个指定元素    
+            同辈选择器
+                格式：元素~指定元素 (波浪号隔开)
+                示例:$("元素~指定元素")
+                选择元素下面的所有指定元素
+    -->
+    <div id="parent">层次选择器
+        <div id="child" class="testColor">父选择器
+            <div class="rgbColor">子选择器</div>
+            <img src="../img/时光机.jpg" width="370" height="130">
+            <img src="../img/第二人生.jpeg"  width="370" height="130">
+        </div>
+        <div>
+            选择器2 <div>选择器2中的div</div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+//后代选择器
+   var hd = $("#parent div")
+   console.log(hd)
+//子代选择器
+   var childselect = $("#parent > div")
+   console.log(childselect)
+//相邻选择器
+   var xl  = $("#child + div")
+   console.log(xl)
+</script>

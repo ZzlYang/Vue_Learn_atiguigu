@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识Vue</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body>
+    <!-- 插值语法
+            功能：用于解析标签体内容
+        指令语法
+            功能：用于解析标签    
+    
+    -->
+    <div id="insert">
+        <h1>插值语法</h1>
+        <h3>你好,{{uname}}</h3>
+        <hr>
+        <h1>指令语法</h1>
+        
+        <a v-bind:href="url">百度</a>
+        <!-- 简写形式 -->
+        <a :href="bilibili">点击跳转到哔哩哔哩动画</a>
+    </div>
+</body>
+</html>
+
+<script>
+    Vue.config.productionTip = false    //关闭Vue开发者警告
+    // 创建Vue实例
+    const x =  new Vue({
+        el:"#insert",
+        data:{
+            uname:"jack",
+            url:"http://www.baidu.com",
+            bilibili:"http://www.bilibili.com"
+        }
+    })
+
+   
+</script>

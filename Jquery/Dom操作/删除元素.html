@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除元素</title>
+    <style>span{
+        color:white;
+        padding:8px;
+        margin:5px;
+        float:left;
+    }
+    .green{
+        background-color: green;
+    }
+    .blue{
+        background-color: blue;
+    }
+    .may{
+        background-color: rgb(36, 181, 238);
+    }
+    </style>
+    
+</head>
+<body>
+    <h3>
+        <span class="green">jquery <a>删除</a></span>
+        <span class="blue">javase</span>
+        <span class="green">http协议</span>
+        <span class="blue">servlet</span>
+    </h3>
+    <h3>
+        <span class="may" id="text1">
+        <span class="may">第二人生</span>
+        <span class="may">自传</span>
+        <span class="may">为爱而生</span>
+        <span class="may">人生海海</span>
+        </span>
+    </h3>
+</body>
+</html>
+
+<script src="../js/jquery-3.6.0.js" text="text/javascript"></script>
+<script>
+    $(".green").remove()
+    $("#text1").empty()
+
+</script>
